@@ -1,8 +1,8 @@
 
 import type { NextFunction, Request, Response } from 'express';
-import { AppError } from './AppError.js';
-import { logger } from '../../configs/logger.js';
-import { sendError } from '../utils/response.js';
+import { AppError } from './AppError';
+import { logger } from '@configs/logger';
+import { sendError } from '@shared/utils/response';
 
 export function errorHandler(
   err: unknown,
@@ -18,3 +18,4 @@ export function errorHandler(
   logger.error({ err }, 'Unhandled error');
   return sendError(res);
 }
+

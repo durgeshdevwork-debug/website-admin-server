@@ -1,8 +1,8 @@
 import type { Response, NextFunction } from 'express';
-import type { AuthenticatedRequest } from './authSession.js';
-import { TenantModel } from '../../modules/tenants/tenant.model.js';
-import { UserModel } from '../../modules/users/user.model.js';
-import { sendError } from '../utils/response.js';
+import type { AuthenticatedRequest } from './authSession';
+import { TenantModel } from '@modules/tenants/tenant.model';
+import { UserModel } from '@modules/users/user.model';
+import { sendError } from '@shared/utils/response';
 
 export interface TenantRequest extends AuthenticatedRequest {
   tenantId?: string;
@@ -36,3 +36,4 @@ export async function attachTenant(
     return next(err);
   }
 }
+

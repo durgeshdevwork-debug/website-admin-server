@@ -1,5 +1,5 @@
 
-import { env } from './configs/env.js';
+import { env } from '@configs/env';
 import { betterAuth } from 'better-auth';
 
 // PSEUDO-CONFIG: replace with real adapter + providers from Better Auth docs
@@ -10,3 +10,4 @@ export const auth = betterAuth({
   // emailAndPassword: { enabled: true },
   // plugins: [...]
 });
+

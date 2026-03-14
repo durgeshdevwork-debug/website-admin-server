@@ -1,5 +1,5 @@
 
-import { edge } from './edge.js';
+import { edge } from './edge';
 
 export async function renderWelcomeEmail(params: {
   name: string;

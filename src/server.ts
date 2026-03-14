@@ -1,9 +1,9 @@
 
 import http from 'node:http';
-import { app } from './app.js';
-import { env } from './configs/env.js';
-import { connectDB, disconnectDB } from './configs/db.js';
-import { logger } from './configs/logger.js';
+import { app } from './app';
+import { env } from '@configs/env';
+import { connectDB, disconnectDB } from '@configs/db';
+import { logger } from '@configs/logger';
 
 async function start() {
   await connectDB();
@@ -34,3 +34,4 @@ start().catch((err) => {
   logger.error({ err }, 'Failed to start server');
   process.exit(1);
 });
+

@@ -1,7 +1,7 @@
 
 import type { Request, Response, NextFunction } from 'express';
 import  {pinoHttp} from 'pino-http';
-import { logger } from '../../configs/logger.js';
+import { logger } from '@configs/logger';
 
 export const requestLogger = pinoHttp({ logger });
 
@@ -13,3 +13,4 @@ export function requestLogMiddleware(
   requestLogger(req, res);
   next();
 }
+

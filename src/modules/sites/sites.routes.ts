@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import type { TenantRequest } from '../../shared/middlewares/attachTenant.js';
-import { authSession } from '../../shared/middlewares/authSession.js';
-import { attachTenant } from '../../shared/middlewares/attachTenant.js';
-import { SiteModel } from './site.model.js';
-import { sendSuccess } from '../../shared/utils/response.js';
+import type { TenantRequest } from '@shared/middlewares/attachTenant';
+import { authSession } from '@shared/middlewares/authSession';
+import { attachTenant } from '@shared/middlewares/attachTenant';
+import { SiteModel } from './site.model';
+import { sendSuccess } from '@shared/utils/response';
 
 export const sitesRouter = Router();
 
@@ -42,3 +42,4 @@ sitesRouter.post(
     }
   }
 );
+

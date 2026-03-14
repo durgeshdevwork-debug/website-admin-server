@@ -1,8 +1,8 @@
 
 import { Router } from 'express';
 import { fromNodeHeaders } from 'better-auth/node';
-import { auth } from '../../auth.js';
-import { sendSuccess, sendError } from '../../shared/utils/response.js';
+import { auth } from '../../auth';
+import { sendSuccess, sendError } from '@shared/utils/response';
 
 export const authRouter = Router();
 
@@ -22,3 +22,4 @@ authRouter.get('/profile', async (req, res, next) => {
     next(err);
   }
 });
+

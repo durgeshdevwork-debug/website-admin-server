@@ -3,12 +3,12 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import { toNodeHandler, fromNodeHeaders } from 'better-auth/node';
-import { env } from './configs/env.js';
-import { requestLogMiddleware } from './shared/middlewares/requestLogger.js';
-import { errorHandler } from './shared/errors/errorHandler.js';
-import { notFound } from './shared/middlewares/notFound.js';
-import { registerRoutes } from './routes/index.js';
-import { auth } from './auth.js';
+import { env } from '@configs/env';
+import { requestLogMiddleware } from '@shared/middlewares/requestLogger';
+import { errorHandler } from '@shared/errors/errorHandler';
+import { notFound } from '@shared/middlewares/notFound';
+import { registerRoutes } from './routes/index';
+import { auth } from './auth';
 
 export const app = express();
 
@@ -67,3 +67,4 @@ registerRoutes(app);
 // 404 + Error handlers
 app.use(notFound);
 app.use(errorHandler);
+

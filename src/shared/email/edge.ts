@@ -1,4 +1,4 @@
-import { Edge } from 'edge.js';
+import { Edge } from 'edge';
 
 // Create a singleton Edge instance
 export const edge = Edge.create();

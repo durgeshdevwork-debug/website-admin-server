@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from 'express';
 import { fromNodeHeaders } from 'better-auth/node';
-import { auth } from '../../auth.js';
-import { sendError } from '../utils/response.js';
+import { auth } from '../../auth';
+import { sendError } from '@shared/utils/response';
 
 export interface AuthenticatedRequest extends Request {
   authUser?: {
@@ -35,3 +35,4 @@ export async function authSession(
     return next(err);
   }
 }
+
