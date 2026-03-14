@@ -1,0 +1,36 @@
+
+import http from 'node:http';
+import { app } from './app.js';
+import { env } from './configs/env.js';
+import { connectDB, disconnectDB } from './configs/db.js';
+import { logger } from './configs/logger.js';
+
+async function start() {
+  await connectDB();
+
+  const server = http.createServer(app);
+
+  server.listen(env.PORT, () => {
+    logger.info(`Server listening on port ${env.PORT}`);
+  });
+
+  const shutdown = (signal: NodeJS.Signals) => {
+    logger.info({ signal }, 'Received shutdown signal');
+    server.close(async (err) => {
+      if (err) {
+        logger.error({ err }, 'Error closing HTTP server');
+        process.exit(1);
+      }
+      await disconnectDB();
+      process.exit(0);
+    });
+  };
+
+  process.on('SIGINT', shutdown);
+  process.on('SIGTERM', shutdown);
+}
+
+start().catch((err) => {
+  logger.error({ err }, 'Failed to start server');
+  process.exit(1);
+});
