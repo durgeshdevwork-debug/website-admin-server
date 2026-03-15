@@ -1,9 +1,11 @@
+import { connectDB } from "@configs/db";
 import { env } from "@configs/env";
 import { User } from "@modules/users/user.model";
 import { auth } from "@shared/utils/auth";
 
 async function createAdmin() {
   try {
+    await connectDB();
     const email = env.ADMIN_EMAIL!;
     const password = env.ADMIN_PASSWORD!;
     const name = env.ADMIN_NAME || "Admin";
@@ -16,6 +18,8 @@ async function createAdmin() {
     const existing = await User.findOne({
       email
     });
+
+    console.log("Checking if admin user already exists...");
 
     if (existing) {
       console.log("Admin already exists");

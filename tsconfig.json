@@ -14,7 +14,8 @@
     "paths": {
       "@configs/*": ["configs/*"],
       "@modules/*": ["modules/*"],
-      "@shared/*": ["shared/*"]
+      "@shared/*": ["shared/*"],
+      "@commands/*": ["commands/*"],
     },
     "ignoreDeprecations": "6.0"
   },

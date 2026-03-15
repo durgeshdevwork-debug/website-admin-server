@@ -1,59 +1,34 @@
-import mongoose from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
 
-const accountSchema = new mongoose.Schema(
-  {
-    id: {
-      type: String,
-      required: true,
-      unique: true
-    },
+export interface IAccount extends Document {
+  _id: mongoose.Types.ObjectId;
+  userId: mongoose.Types.ObjectId;
+  accountId: string;
+  providerId: string;
+  accessToken?: string;
+  refreshToken?: string;
+  accessTokenExpiresAt?: Date;
+  refreshTokenExpiresAt?: Date;
+  scope?: string;
+  idToken?: string;
+  password?: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
-    userId: {
-      type: String,
-      required: true
-    },
+const AccountSchema = new Schema<IAccount>({
+  userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
+  accountId: { type: String, required: true },
+  providerId: { type: String, required: true },
+  accessToken: { type: String },
+  refreshToken: { type: String },
+  accessTokenExpiresAt: { type: Date },
+  refreshTokenExpiresAt: { type: Date },
+  scope: { type: String },
+  idToken: { type: String },
+  password: { type: String },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+});
 
-    accountId: {
-      type: String,
-      required: true
-    },
-
-    providerId: {
-      type: String,
-      required: true
-    },
-
-    accessToken: {
-      type: String
-    },
-
-    refreshToken: {
-      type: String
-    },
-
-    accessTokenExpiresAt: {
-      type: Date
-    },
-
-    refreshTokenExpiresAt: {
-      type: Date
-    },
-
-    scope: {
-      type: String
-    },
-
-    idToken: {
-      type: String
-    },
-
-    password: {
-      type: String
-    }
-  },
-  {
-    timestamps: true
-  }
-);
-
-export const Account = mongoose.model("Account", accountSchema);
+export const Account = mongoose.models.Account || mongoose.model<IAccount>("Account", AccountSchema);

@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "ts-node-dev --respawn -r tsconfig-paths/register src/server.ts",
-    "create:admin": "ts-node src/commands/seeders/create-admin-user.ts",
+    "create:admin": "ts-node -r tsconfig-paths/register src/commands/seeders/create-admin-user.ts",
     "build": "tsc",
     "start": "node dist/server.js",
     "lint": "eslint ."
