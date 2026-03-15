@@ -11,7 +11,7 @@ async function start() {
   const server = http.createServer(app);
 
   server.listen(env.PORT, () => {
-    logger.info(`Server listening on port ${env.PORT}`);
+    logger.info(`Server listening on http://${env.HOST}:${env.PORT}`);
   });
 
   const shutdown = (signal: NodeJS.Signals) => {

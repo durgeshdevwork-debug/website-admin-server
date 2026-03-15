@@ -1,7 +1,7 @@
 
 import { Router } from 'express';
 import { fromNodeHeaders } from 'better-auth/node';
-import { auth } from '../../auth';
+import { auth } from '../../shared/utils/auth';
 import { sendSuccess, sendError } from '@shared/utils/response';
 
 export const authRouter = Router();

@@ -8,27 +8,25 @@ import { requestLogMiddleware } from '@shared/middlewares/requestLogger';
 import { errorHandler } from '@shared/errors/errorHandler';
 import { notFound } from '@shared/middlewares/notFound';
 import { registerRoutes } from './routes/index';
-import { auth } from './auth';
+import { auth } from './shared/utils/auth';
 
 export const app = express();
 
 // CORS – can be applied globally
 app.use(
   cors({
-    origin: env.CORS_ORIGIN ?? 'http://localhost:3000',
+    origin: env.CORS_ORIGIN ?? 'http://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     credentials: true
   })
 );
-
 // Better Auth handler (must be before express.json)[web:17][web:20]
-app.all('/api/auth/*', toNodeHandler(auth));
-
+app.all('/api/auth/*splat', toNodeHandler(auth));
+console.log
 // Now, for the rest of your routes:
 app.use(helmet());
 app.use(express.json()); // safe after auth handler
 app.use(requestLogMiddleware);
-
 // Health route without auth
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok' });

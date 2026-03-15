@@ -1,4 +1,3 @@
-
 import pino from 'pino';
 
 export const logger = pino({
@@ -8,6 +7,9 @@ export const logger = pino({
       ? undefined
       : {
           target: 'pino-pretty',
-          options: { colorize: true, translateTime: 'SYS:standard' }
+          options: {
+            colorize: true,
+            translateTime: 'SYS:standard'
+          }
         }
 });

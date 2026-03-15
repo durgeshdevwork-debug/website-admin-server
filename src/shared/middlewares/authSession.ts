@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from 'express';
 import { fromNodeHeaders } from 'better-auth/node';
-import { auth } from '../../auth';
+import { auth } from '../utils/auth';
 import { sendError } from '@shared/utils/response';
 
 export interface AuthenticatedRequest extends Request {
