@@ -17,8 +17,11 @@ const envSchema = z.object({
   BETTER_AUTH_BASE_URL: z.string().url().optional(), // e.g. http://localhost:4000
 
   // CORS
-  CORS_ORIGIN: z.string().optional()
+  CORS_ORIGIN: z.string().optional(),
 
+  ADMIN_EMAIL: z.string().email().optional(),
+  ADMIN_PASSWORD: z.string().min(8).optional(),
+  ADMIN_NAME: z.string().optional()
 });
 
 export const env = envSchema.parse(process.env);

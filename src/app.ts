@@ -21,7 +21,7 @@ app.use(
   })
 );
 // Better Auth handler (must be before express.json)[web:17][web:20]
-app.all('/api/auth/*splat', toNodeHandler(auth));
+app.all('/api/auth/{*any}', toNodeHandler(auth));
 console.log
 // Now, for the rest of your routes:
 app.use(helmet());
