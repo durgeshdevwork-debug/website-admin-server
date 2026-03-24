@@ -1,0 +1,21 @@
+﻿src/modules/admin/admin.controller.ts(44,49): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/admin/admin.controller.ts(53,52): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/admin/admin.controller.ts(62,56): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/content/content.controller.ts(83,74): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/content/content.controller.ts(93,74): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/content/content.controller.ts(122,72): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/content/content.controller.ts(132,72): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/public/public.controller.ts(70,60): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/sites/sites.routes.ts(5,27): error TS2307: Cannot find module './site.model' or its corresponding type declarations.
+src/shared/email/edge.ts(1,22): error TS2307: Cannot find module 'edge' or its corresponding type declarations.
+src/shared/email/edge.ts(7,35): error TS1343: The 'import.meta' meta-property is only allowed when the '--module' option is 'es2020', 'es2022', 'esnext', 'system', 'node16', 'node18', 'node20', or 'nodenext'.
+src/shared/middlewares/attachTenant.ts(3,29): error TS2307: Cannot find module '@modules/tenants/tenant.model' or its corresponding type declarations.
+src/shared/middlewares/attachTenant.ts(4,10): error TS2305: Module '"@modules/users/user.model"' has no exported member 'UserModel'.
